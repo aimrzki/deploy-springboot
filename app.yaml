@@ -1,0 +1,27 @@
+runtime: java21
+
+# Optional: Specify the instance class. Choose one according to your needs.
+instance_class: F2
+
+# Optional: Configure environment variables
+env_variables:
+  SPRING_PROFILES_ACTIVE: "prod"
+
+# Optional: Configure scaling settings
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.65
+
+# Optional: Configure handlers if you need to set up custom routing
+handlers:
+  - url: /.*
+    script: this field is required but ignored
+
+# Optional: Set up a health check path
+health_check:
+  path: /actuator/health
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 1
